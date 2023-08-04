@@ -15,7 +15,7 @@
 
 ### Потребление
 Активный режим
-![javaw_A2IAcmEGjG](https://github.com/simply-kel/Ruthenium/assets/86980879/f55f9172-56f1-4b21-81e9-3a6038a5dd91)
+![1.png](https://kelcuprum.ru/ass/ruthenium/1.png)
 
 Фоновый режим
-![javaw_QBn17e0WIC](https://github.com/simply-kel/Ruthenium/assets/86980879/adbe98e0-9e73-4139-97bd-f1cf4dc3ed1a)
+![2.png](https://kelcuprum.ru/ass/ruthenium/2.png)
