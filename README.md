@@ -6,12 +6,12 @@
 ![GitHub all releases](https://img.shields.io/github/downloads/simply-kel/rethenium/total?color=blue&label=GitHub%20Downloads&style=flat-square)
 ![GitHub](https://img.shields.io/github/license/simply-kel/rethenium?color=blue&label=License&style=flat-square)
 <br>
-Мод позволяющий снизить потребление игры, когда игра находится в фоновом режим.
+Мод, снижающий потребление игры, когда она находится в фоновом режиме.
 </div>
 
 ### Что он делает?
-* Снижает максимальное кол-во FPS
-* Снижает прорисовку чанков
+* Снижает максимальный FPS
+* Уменьшает рендеринг чанков
 
 ### Потребление
 Активный режим
