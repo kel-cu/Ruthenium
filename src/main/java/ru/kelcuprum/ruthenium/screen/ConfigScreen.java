@@ -1,55 +1,55 @@
 package ru.kelcuprum.ruthenium.screen;
 
-import dev.isxander.yacl3.api.ConfigCategory;
-import dev.isxander.yacl3.api.Option;
-import dev.isxander.yacl3.api.controller.IntegerSliderControllerBuilder;
-import dev.isxander.yacl3.impl.controller.BooleanControllerBuilderImpl;
-import dev.isxander.yacl3.api.YetAnotherConfigLib;
-import dev.isxander.yacl3.impl.controller.IntegerFieldControllerBuilderImpl;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.gui.screen.MessageScreen;
-import net.minecraft.client.gui.screen.Screen;
+import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.network.chat.Component;
+import ru.kelcuprum.alinlib.gui.components.buttons.flat.FlatButtonBoolean;
+import ru.kelcuprum.alinlib.gui.components.buttons.flat.FlatColoredButton;
+import ru.kelcuprum.alinlib.gui.components.sliders.flat.FlatSliderInteger;
+import ru.kelcuprum.alinlib.gui.components.text.TextBox;
 import ru.kelcuprum.ruthenium.Client;
-import ru.kelcuprum.ruthenium.config.Localization;
-import ru.kelcuprum.ruthenium.config.UserConfig;
 
-public class ConfigScreen {
-    public static Screen buildScreen(Screen currentScreen) {
-        UserConfig.load();
-        YetAnotherConfigLib.Builder screen = YetAnotherConfigLib.createBuilder()
-                .title(Localization.getText("ruthenium.name"))
-                .category(ConfigCategory.createBuilder()
-                        .name(Localization.getText("ruthenium.config.client"))
-                        .option(Option.createBuilder(boolean.class)
-                                .name(Localization.getText("ruthenium.config.afk_distance_enable"))
-                                .binding(true, () -> UserConfig.AFK_DISTANCE_ENABLE, newVal -> UserConfig.AFK_DISTANCE_ENABLE = newVal)
-                                .controller(BooleanControllerBuilderImpl::new)
-                                .build())
-                        .option(Option.createBuilder(Integer.class)
-                                .name(Localization.getText("ruthenium.config.afk_distance"))
-                                .binding(2, () -> UserConfig.AFK_DISTANCE, newVal -> UserConfig.AFK_DISTANCE = newVal)
-                                .controller(opt -> IntegerSliderControllerBuilder.create(opt)
-                                        .range(2, 32)
-                                        .step(1))
-                                .build())
-                        .option(Option.createBuilder(boolean.class)
-                                .name(Localization.getText("ruthenium.config.afk_fps_enable"))
-                                .binding(true, () -> UserConfig.AFK_FPS_ENABLE, newVal -> UserConfig.AFK_FPS_ENABLE = newVal)
-                                .controller(BooleanControllerBuilderImpl::new)
-                                .build())
-                        .option(Option.createBuilder(Integer.class)
-                                .name(Localization.getText("ruthenium.config.afk_fps"))
-                                .binding(10, () -> UserConfig.AFK_FPS, newVal -> UserConfig.AFK_FPS = newVal)
-                                .controller(opt -> IntegerSliderControllerBuilder.create(opt)
-                                        .range(10, 260)
-                                        .step(10))
-                                .build())
-                        .build())
-                .save(ConfigScreen::save);
-        return screen.build().generateScreen(currentScreen);
+import java.util.Objects;
+
+public class ConfigScreen extends Screen {
+    private final Screen parent;
+    private static final Component TITLE = Component.translatable("ruthenium.name");
+    private static final Component afkDistanceEnableText = Component.translatable("ruthenium.config.afk_distance_enable");
+    private static final Component afkDistanceText = Component.translatable("ruthenium.config.afk_distance");
+    private static final Component afkFPSEnableText = Component.translatable("ruthenium.config.afk_fps_enable");
+    private static final Component afkFPSText = Component.translatable("ruthenium.config.afk_fps");
+    private static final Component exitText = Component.translatable("ruthenium.config.exit");
+
+    public ConfigScreen(Screen parent) {
+        super(TITLE);
+        this.parent = parent;
     }
-    private static void save() {
-        UserConfig.save();
-        Client.log("Save user configs...");
+
+    public void tick() {
+        super.tick();
+    }
+
+    public void init() {
+        this.initButtonsCategory();
+    }
+
+    private void initButtonsCategory() {
+        Objects.requireNonNull(this.font);
+        addRenderableWidget(new TextBox(0, 15, this.width, 9, this.title, true));
+        int x = this.width/2-155;
+        addRenderableWidget(new FlatButtonBoolean(x, 40, 150, 20, Client.config, "AFK_FPS_ENABLE", true, afkFPSEnableText));
+        addRenderableWidget(new FlatSliderInteger(x+160, 40, 150, 20, Client.config, "AFK_FPS", 10,5, 60, afkFPSText));
+
+        addRenderableWidget(new FlatButtonBoolean(x, 65, 150, 20, Client.config, "AFK_DISTANCE_ENABLE", true, afkDistanceEnableText));
+        addRenderableWidget(new FlatSliderInteger(x+160, 65, 150, 20, Client.config, "AFK_DISTANCE", 2,2, 12, afkDistanceText));
+
+        addRenderableWidget(new FlatColoredButton(x+80, 115, 150, 20, 0xFFff006e,  exitText, (s) -> {
+            this.minecraft.setScreen(this.parent);
+        }));
+    }
+
+    public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
+        super.render(guiGraphics, mouseX, mouseY, partialTicks);
     }
 }
+
