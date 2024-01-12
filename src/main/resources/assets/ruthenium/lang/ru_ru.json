@@ -2,11 +2,7 @@
   "ruthenium.name": "Ruthenium",
   "ruthenium.config.afk_distance_enable": "Включить фоновую дистанцию",
   "ruthenium.config.afk_distance": "Фоновая дистанция",
-  "ruthenium.config.afk_fps_enable": "Включить фоновый FPS",
+  "ruthenium.config.afk_fps_enable": "Вкл. фоновый FPS",
   "ruthenium.config.afk_fps": "Фоновый FPS",
-  "ruthenium.config.exit": "Выйти",
-  "modmenu.descriptionTranslation.ruthenium": "Снижает потребление ресурсов Minecraft при работе в фоновом режиме.",
-  "modmenu.ruthenium.github": "GitHub",
-  "modmenu.ruthenium.modrinth": "Modrinth",
-  "modmenu.ruthenium.donate": "DonationAlerts"
+  "modmenu.descriptionTranslation.ruthenium": "Снижает потребление ресурсов Minecraft при работе в фоновом режиме."
 }

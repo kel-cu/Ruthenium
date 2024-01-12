@@ -55,11 +55,11 @@ public class Client implements ClientModInitializer {
                     lastStatus = true;
                     if (config.getBoolean("AFK_FPS_ENABLE", true)) {
                         currentFPS = gameSettings.framerateLimit().get();
-                        setFpsLimit(config.getInt("AFK_FPS", 10));
+                        setFpsLimit(config.getNumber("AFK_FPS", 10).intValue());
                     }
                     if (config.getBoolean("AFK_DISTANCE_ENABLE", true)) {
                         currentDistance = gameSettings.renderDistance().get();
-                        gameSettings.renderDistance().set(config.getInt("AFK_DISTANCE", 2));
+                        gameSettings.renderDistance().set(config.getNumber("AFK_DISTANCE", 2).intValue());
                     }
                 }
             } else {

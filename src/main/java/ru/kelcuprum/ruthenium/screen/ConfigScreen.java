@@ -2,10 +2,11 @@ package ru.kelcuprum.ruthenium.screen;
 
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.network.chat.CommonComponents;
 import net.minecraft.network.chat.Component;
-import ru.kelcuprum.alinlib.gui.components.buttons.flat.FlatButtonBoolean;
-import ru.kelcuprum.alinlib.gui.components.buttons.flat.FlatColoredButton;
-import ru.kelcuprum.alinlib.gui.components.sliders.flat.FlatSliderInteger;
+import ru.kelcuprum.alinlib.gui.components.buttons.Button;
+import ru.kelcuprum.alinlib.gui.components.buttons.ButtonBoolean;
+import ru.kelcuprum.alinlib.gui.components.sliders.SliderInteger;
 import ru.kelcuprum.alinlib.gui.components.text.TextBox;
 import ru.kelcuprum.ruthenium.Client;
 
@@ -18,7 +19,6 @@ public class ConfigScreen extends Screen {
     private static final Component afkDistanceText = Component.translatable("ruthenium.config.afk_distance");
     private static final Component afkFPSEnableText = Component.translatable("ruthenium.config.afk_fps_enable");
     private static final Component afkFPSText = Component.translatable("ruthenium.config.afk_fps");
-    private static final Component exitText = Component.translatable("ruthenium.config.exit");
 
     public ConfigScreen(Screen parent) {
         super(TITLE);
@@ -36,20 +36,25 @@ public class ConfigScreen extends Screen {
     private void initButtonsCategory() {
         Objects.requireNonNull(this.font);
         addRenderableWidget(new TextBox(0, 15, this.width, 9, this.title, true));
-        int x = this.width/2-155;
-        addRenderableWidget(new FlatButtonBoolean(x, 40, 150, 20, Client.config, "AFK_FPS_ENABLE", true, afkFPSEnableText));
-        addRenderableWidget(new FlatSliderInteger(x+160, 40, 150, 20, Client.config, "AFK_FPS", 10,5, 60, afkFPSText));
+        int x = width/2;
+        int size = 180;
+        addRenderableWidget(new ButtonBoolean(x-90, 40, size, 20, Client.config, "AFK_FPS_ENABLE", true, afkFPSEnableText));
+        addRenderableWidget(new SliderInteger(x-90, 65, size, 20, Client.config, "AFK_FPS", 10,5, 60, afkFPSText));
 
-        addRenderableWidget(new FlatButtonBoolean(x, 65, 150, 20, Client.config, "AFK_DISTANCE_ENABLE", true, afkDistanceEnableText));
-        addRenderableWidget(new FlatSliderInteger(x+160, 65, 150, 20, Client.config, "AFK_DISTANCE", 2,2, 12, afkDistanceText));
+        addRenderableWidget(new ButtonBoolean(x-90, 90, size, 20, Client.config, "AFK_DISTANCE_ENABLE", true, afkDistanceEnableText));
+        addRenderableWidget(new SliderInteger(x-90, 115, size, 20, Client.config, "AFK_DISTANCE", 2,2, 12, afkDistanceText));
 
-        addRenderableWidget(new FlatColoredButton(x+80, 115, 150, 20, 0xFFff006e,  exitText, (s) -> {
+        addRenderableWidget(new Button(x-90, height-30, size, 20, 0xFFff006e, CommonComponents.GUI_BACK, (s) -> {
+            assert this.minecraft != null;
             this.minecraft.setScreen(this.parent);
         }));
     }
 
-    public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-        super.render(guiGraphics, mouseX, mouseY, partialTicks);
+    @Override
+    public void renderBackground(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTick) {
+        int x = width/2;
+        guiGraphics.fill(x-100, 0, x+100, height, 0x7F000000);
+        super.renderBackground(guiGraphics, mouseX, mouseY, partialTick);
     }
 }
 

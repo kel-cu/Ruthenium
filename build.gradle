@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '1.2-SNAPSHOT'
+    id 'fabric-loom' version '1.5-SNAPSHOT'
     id 'com.github.johnrengelman.shadow' version '7.1.2'
     id 'maven-publish'
 }
@@ -14,12 +14,11 @@ repositories {
     // Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
     // See https://docs.gradle.org/current/userguide/declaring_repositories.html
     // for more information about repositories.
-    jcenter()
     maven {
         url = "https://jitpack.io/"
     }
     maven { url = "https://maven.terraformersmc.com/releases" }
-    maven { url = 'https://repo.kelcuprum.ru/snapshots' }
+    maven { url = 'https://repo.kelcuprum.ru/releases' }
 }
 
 configurations { shade }
@@ -32,7 +31,6 @@ dependencies {
     // Fabric API. This is technically optional, but you probably want it anyway.
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
     //
-    include(implementation "org.json:json:${project.JSON}")
     shade modImplementation("ru.kelcuprum.alinlib:AlinLib:${project.alinlib}");
     modImplementation "com.terraformersmc:modmenu:${project.modmenu_version}"
 
