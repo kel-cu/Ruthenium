@@ -18,7 +18,7 @@ public class Client implements ClientModInitializer {
     public static int currentFPS = 10;
     public static int currentDistance = 2;
     public static boolean closing = false;
-    public static Config config = new Config("ruthenium.json");
+    public static Config config = new Config("config/ruthenium.json");
     public static boolean lastStatus = false;
     @Override
     public void onInitializeClient() {
