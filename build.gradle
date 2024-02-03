@@ -18,7 +18,9 @@ repositories {
         url = "https://jitpack.io/"
     }
     maven { url = "https://maven.terraformersmc.com/releases" }
+    maven { url = 'https://repo.kelcuprum.ru/snapshots' }
     maven { url = 'https://repo.kelcuprum.ru/releases' }
+    maven { url = 'https://repo.kelcuprum.ru/test' }
 }
 
 configurations { shade }
@@ -31,7 +33,7 @@ dependencies {
     // Fabric API. This is technically optional, but you probably want it anyway.
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
     //
-    shade modImplementation("ru.kelcuprum.alinlib:AlinLib:${project.alinlib}");
+    modImplementation("ru.kelcuprum.alinlib:AlinLib:${project.alinlib}");
     modImplementation "com.terraformersmc:modmenu:${project.modmenu_version}"
 
     subprojects.each {
