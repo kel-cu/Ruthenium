@@ -1,8 +1,9 @@
 {
   "ruthenium.name": "钌",
-  "ruthenium.config.afk_distance_enable": "启用后台视距",
+  "ruthenium.config": "配置",
+  "ruthenium.config.enable.afk_distance": "启用后台视距",
   "ruthenium.config.afk_distance": "在后台时的视距",
-  "ruthenium.config.afk_fps_enable": "启用后台FPS",
+  "ruthenium.config.enable.afk_fps": "启用后台FPS",
   "ruthenium.config.afk_fps": "在后台时的FPS",
   "modmenu.descriptionTranslation.ruthenium": "减少客户端在后台运行时候的资源消耗。"
 }

@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '1.5-SNAPSHOT'
+    id 'fabric-loom' version '1.6-SNAPSHOT'
     id 'com.github.johnrengelman.shadow' version '7.1.2'
     id 'maven-publish'
 }
@@ -14,26 +14,27 @@ repositories {
     // Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
     // See https://docs.gradle.org/current/userguide/declaring_repositories.html
     // for more information about repositories.
-    maven {
-        url = "https://jitpack.io/"
-    }
     maven { url = "https://maven.terraformersmc.com/releases" }
     maven { url = 'https://repo.kelcuprum.ru/snapshots' }
     maven { url = 'https://repo.kelcuprum.ru/releases' }
     maven { url = 'https://repo.kelcuprum.ru/test' }
+    maven { url = "https://maven.parchmentmc.org" } // MAPPINGS
+    maven { url = "https://jitpack.io/" }
 }
 
 configurations { shade }
 dependencies {
     // To change the versions see the gradle.properties file
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
-    mappings loom.officialMojangMappings()
+    mappings loom.layered() {
+        officialMojangMappings()
+        parchment "org.parchmentmc.data:parchment-${project.minecraft_version}:${project.parchment_version}@zip"
+    }
+    //
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
-
-    // Fabric API. This is technically optional, but you probably want it anyway.
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
     //
-    modImplementation("ru.kelcuprum.alinlib:AlinLib:${project.alinlib}");
+    modImplementation("ru.kelcuprum.alinlib:AlinLib-fabric:${project.alinlib}");
     modImplementation "com.terraformersmc:modmenu:${project.modmenu_version}"
 
     subprojects.each {

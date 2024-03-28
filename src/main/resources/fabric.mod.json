@@ -16,12 +16,15 @@
   "environment": "client",
   "entrypoints": {
     "client": [
-      "ru.kelcuprum.ruthenium.Client"
+      "ru.kelcuprum.ruthenium.Ruthenium"
     ],
     "modmenu": [
       "ru.kelcuprum.ruthenium.screen.ModMenuIntegration"
     ]
   },
+  "mixins": [
+    "ruthenium.mixin.json"
+  ],
   "depends": {
     "fabricloader": ">=0.14.17",
     "fabric": "*",
