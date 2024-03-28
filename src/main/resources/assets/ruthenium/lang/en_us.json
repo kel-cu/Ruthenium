@@ -1,9 +1,0 @@
-{
-  "ruthenium.name": "Ruthenium",
-  "ruthenium.config": "Configuration",
-  "ruthenium.config.enable.afk_distance": "Enable Background Distance",
-  "ruthenium.config.afk_distance": "Background Distance",
-  "ruthenium.config.enable.afk_fps": "Enable Background FPS",
-  "ruthenium.config.afk_fps": "Background FPS",
-  "modmenu.descriptionTranslation.ruthenium": "Reduces Minecraft resource consumption when running in the background."
-}

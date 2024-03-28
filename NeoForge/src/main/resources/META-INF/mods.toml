@@ -1,0 +1,39 @@
+modLoader = "javafml"
+loaderVersion = "*"
+issueTrackerURL = "https://github.com/simply-kel/ruthenium/issues"
+license="MIT"
+
+[[mods]]
+displayTest = "IGNORE_ALL_VERSION"
+modId = "ruthenium"
+version = "${version}"
+displayURL = "https://modrinth.com/mod/ruthenium"
+displayName = "Ruthenium"
+updateJSONURL = "https://api.modrinth.com/updates/ruthenium/forge_updates.json"
+authors = "Im_Kel"
+description = "Reduces Minecraft resource consumption when running in the background."
+logoFile = "assets/ruthenium/logo.png"
+
+[[mixins]]
+config="ruthenium.mixin.json"
+
+[[dependencies.ruthenium]]
+modId = "neoforge"
+type = "required"
+versionRange = "*"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.ruthenium]]
+modId = "alinlib"
+type = "required"
+versionRange = "*"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.ruthenium]]
+modId = "minecraft"
+type = "required"
+versionRange = "[1.20.2,)"
+ordering = "NONE"
+side = "BOTH"

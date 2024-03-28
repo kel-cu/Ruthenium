@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": "ruthenium",
+  "name": "Ruthenium",
+  "version": "${version}",
+  "description": "Reduces Minecraft resource consumption when running in the background.",
+  "authors": ["Im_Kel"],
+  "contact": {
+    "homepage": "https://modrinth.com/mod/ruthenium",
+    "sources": "https://github.com/simply-kel/Ruthenium",
+    "issues": "https://github.com/simply-kel/Ruthenium/issues",
+    "email": "kel@simplykel.ru"
+  },
+  "license": "MIT",
+  "icon": "assets/ruthenium/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "ru.kelcuprum.ruthenium.RutheniumFabric"
+    ],
+    "modmenu": [
+      "ru.kelcuprum.ruthenium.screen.ModMenuIntegration"
+    ]
+  },
+  "mixins": [
+    "ruthenium.mixin.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.17",
+    "fabric": "*",
+    "alinlib": "*",
+    "minecraft": [">=1.20.2"]
+  },
+  "custom": {
+    "modmenu": {
+      "links": {
+        "modmenu.modrinth": "https://modrinth.com/mod/ruthenium",
+        "modmenu.donate": "https://kelcuprum.ru/r/boo"
+      }
+    }
+  }
+}
