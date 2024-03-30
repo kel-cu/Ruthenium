@@ -12,7 +12,7 @@ import ru.kelcuprum.ruthenium.Ruthenium;
 public abstract class OptionsMixin {
     @Inject(method = "getEffectiveRenderDistance", at = @At("HEAD"), cancellable = true)
     protected void getEffectiveRenderDistance(CallbackInfoReturnable<Integer> cir) {
-        if(!Ruthenium.config.getBoolean("ENABLE.AFK_DISTANCE", true)) return;
+        if(!Ruthenium.config.getBoolean("ENABLE.AFK_DISTANCE", false)) return;
         if(Minecraft.getInstance().isWindowActive()) return;
         cir.setReturnValue(Ruthenium.config.getNumber("AFK_DISTANCE", 2).intValue());
         cir.cancel();

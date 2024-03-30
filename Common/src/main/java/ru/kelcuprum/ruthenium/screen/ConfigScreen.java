@@ -21,7 +21,7 @@ public class ConfigScreen {
                 .addWidget(new TextBox(Component.translatable("ruthenium.config"), true))
                 .addWidget(new ButtonBooleanBuilder(Component.translatable("ruthenium.config.enable.afk_fps"), true).setConfig(Ruthenium.config, "ENABLE.AFK_FPS").build())
                 .addWidget(new SliderIntegerBuilder(Component.translatable("ruthenium.config.afk_fps")).setDefaultValue(10).setMin(5).setMax(60).setConfig(Ruthenium.config, "AFK_FPS").build())
-                .addWidget(new ButtonBooleanBuilder(Component.translatable("ruthenium.config.enable.afk_distance"), true).setConfig(Ruthenium.config, "ENABLE.AFK_DISTANCE").build())
+                .addWidget(new ButtonBooleanBuilder(Component.translatable("ruthenium.config.enable.afk_distance"), false).setConfig(Ruthenium.config, "ENABLE.AFK_DISTANCE").build())
                 .addWidget(new SliderIntegerBuilder(Component.translatable("ruthenium.config.afk_distance")).setDefaultValue(2).setMin(2).setMax(12).setConfig(Ruthenium.config, "AFK_DISTANCE").build())
                 .build();
     }
