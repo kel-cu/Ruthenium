@@ -1,3 +1,11 @@
+# **Поддержка Ruthenium прекращена**
+Просьба использовать аналоги, такие как "Idle Tweaks" или "Dynamic FPS"
+
+Поддержка прекращена из-за очередного велосида, так-же проект не давал сильный эффект на производительность на слабом железе, даже наоборот ухудшал результат из-за чанков
+
+Извините, если вам нравился проект, но я вынужден так сделать.
+
+
 ## Ruthenium
 ![Modrinth Game Versions](https://img.shields.io/modrinth/game-versions/ruthenium?label=Minecraft%20Support&style=flat-square)
 ![Modrinth Followers](https://img.shields.io/modrinth/followers/ruthenium?label=Modrinth%20Followers&style=flat-square)
