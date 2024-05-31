@@ -5,6 +5,7 @@
 
 Извините, если вам нравился проект, но я вынужден так сделать.
 
+<hr>
 
 ## Ruthenium
 ![Modrinth Game Versions](https://img.shields.io/modrinth/game-versions/ruthenium?label=Minecraft%20Support&style=flat-square)
